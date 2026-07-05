@@ -1,0 +1,116 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792]
+   /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+
+4 0 obj
+<< /Length 2800 >>
+stream
+BT
+/F1 16 Tf
+50 750 Td
+(FACTORY MACHINE LOG REPORT) Tj
+/F1 10 Tf
+0 -20 Td
+(Date: 2024-06-15 | Facility: Industrial Plant Alpha | Report ID: RPT-2024-0615) Tj
+0 -30 Td
+/F1 13 Tf
+(MACHINE: Conveyor Motor A12) Tj
+/F1 9 Tf
+0 -16 Td
+(Machine ID: MCH-A12 | Type: Electric Motor | Section A - Production Line 1) Tj
+0 -14 Td
+(Health Score: 58.4/100) Tj
+0 -14 Td
+(Temperature: 84.3 deg C  |  Vibration: 7.2 mm/s  |  Pressure: 45.1 PSI) Tj
+0 -12 Td
+(RPM: 1450  |  Voltage: 398V  |  Current: 42.5A) Tj
+0 -14 Td
+(LOG ENTRY: Elevated temperature trend observed over last 72 hours.) Tj
+0 -12 Td
+(Vibration readings exceeding normal threshold 7.2mm/s vs 4.0mm/s baseline.) Tj
+0 -12 Td
+(Bearing noise audible during inspection. Last lubrication: 87 days ago.) Tj
+0 -25 Td
+/F1 13 Tf
+(MACHINE: Pump B7 Section C) Tj
+/F1 9 Tf
+0 -16 Td
+(Machine ID: MCH-B7 | Type: Centrifugal Pump | Section C - Cooling Circuit) Tj
+0 -14 Td
+(Health Score: 82.1/100) Tj
+0 -14 Td
+(Temperature: 71.8 deg C  |  Vibration: 2.1 mm/s  |  Pressure: 122.4 PSI) Tj
+0 -12 Td
+(RPM: 2950  |  Voltage: 401V  |  Current: 28.3A) Tj
+0 -14 Td
+(LOG ENTRY: Pump operating within normal parameters.) Tj
+0 -12 Td
+(Minor cavitation detected at low flow conditions. Flow rate 98 percent of rated capacity.) Tj
+0 -12 Td
+(Seals inspected 14 days ago OK.) Tj
+0 -25 Td
+/F1 13 Tf
+(MACHINE: Turbine X9 Section D) Tj
+/F1 9 Tf
+0 -16 Td
+(Machine ID: MCH-X9 | Type: Steam Turbine | Section D - Power Generation) Tj
+0 -14 Td
+(Health Score: 39.7/100) Tj
+0 -14 Td
+(Temperature: 215.6 deg C  |  Vibration: 9.8 mm/s  |  Pressure: 340.2 PSI) Tj
+0 -12 Td
+(RPM: 3000  |  Voltage: 11000V  |  Current: 185.0A) Tj
+0 -14 Td
+(LOG ENTRY: CRITICAL: High vibration detected at rotor stage 2 9.8mm/s.) Tj
+0 -12 Td
+(Thermal imaging shows hot spot on bearing housing. Shaft misalignment suspected.) Tj
+0 -12 Td
+(Multiple alarm triggers in last 24h. Immediate inspection required.) Tj
+0 -25 Td
+/F1 13 Tf
+(MACHINE: Compressor Unit GH3) Tj
+/F1 9 Tf
+0 -16 Td
+(Machine ID: MCH-GH3 | Type: Air Compressor | Section B - Utilities) Tj
+0 -14 Td
+(Health Score: 91.0/100) Tj
+0 -14 Td
+(Temperature: 58.2 deg C  |  Vibration: 1.4 mm/s  |  Pressure: 8.2 PSI) Tj
+0 -12 Td
+(RPM: 1750  |  Voltage: 400V  |  Current: 18.6A) Tj
+0 -14 Td
+(LOG ENTRY: Air compressor operating normally. Oil level checked adequate.) Tj
+0 -12 Td
+(Filter replaced 12 days ago. Auto-drain functioning correctly.) Tj
+ET
+endstream
+endobj
+
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000003126 00000 n 
+
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+3210
+%%EOF

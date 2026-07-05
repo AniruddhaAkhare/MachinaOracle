@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+*.egg-info/
+dist/
+.env
+
+# Node
+node_modules/
+.next/
+.cache/
+.env.local
+
+# Database
+db/chroma/
+db/*.db
+backend/db/chroma/
+backend/db/*.db
+
+# OS
+.DS_Store
+*.log
