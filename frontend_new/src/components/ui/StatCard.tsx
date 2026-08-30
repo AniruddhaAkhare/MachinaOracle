@@ -4,9 +4,10 @@ interface Props {
   unit?: string;
   color?: string;
   sub?: string;
+  icon?: string;
 }
 
-export default function StatCard({ label, value, unit, color, sub }: Props) {
+export default function StatCard({ label, value, unit, color, sub, icon }: Props) {
   return (
     <div className="panel" style={{ padding: "16px 20px" }}>
       <p className="section-label" style={{ marginBottom: 8 }}>{label}</p>

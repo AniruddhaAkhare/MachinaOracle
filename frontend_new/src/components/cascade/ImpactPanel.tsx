@@ -9,6 +9,7 @@ interface PropStep {
   step: number; machine: string; machine_type: string; depth: number;
   impact_score: number; propagation_prob: number;
   estimated_downtime_hours: number; impact: string;
+  machine_id?: string;
 }
 interface TotalImpact {
   affected_units: number; downtime: string; total_downtime_hours: number;
@@ -156,7 +157,7 @@ export default function ImpactPanel({
             {visibleSteps.map((s, i) => {
               const col = s.impact_score > 70 ? "#EF4444" : s.impact_score > 45 ? "#F97316" : "#F59E0B";
               return (
-                <motion.div key={s.machine_id}
+                <motion.div key={s.machine_id || s.machine || i}
                   initial={{ opacity:0, x:-12, height:0 }}
                   animate={{ opacity:1, x:0, height:"auto" }}
                   exit={{ opacity:0, height:0 }}
