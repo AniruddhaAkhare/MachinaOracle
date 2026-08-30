@@ -10,9 +10,8 @@ import LiveLogPanel from "@/components/realtime/LiveLogPanel";
 import AnalyticsDashboard from "@/components/realtime/AnalyticsDashboard";
 import { uploadPDF } from "@/lib/api";
 
-const WS_URL =
-  (process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:8000") +
-  "/ws/stream";
+const rawWs = process.env.NEXT_PUBLIC_WS_URL || "wss://machinaoracle.onrender.com";
+const WS_URL = rawWs.endsWith("/ws/stream") ? rawWs : `${rawWs.replace(/\/$/, "")}/ws/stream`;
 
 const MAX_TREND = 60;
 const MAX_LOGS = 300;

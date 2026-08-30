@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // ─── Axios instance ─────────────────────────────────────────────────────────────
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://machinaoracle.onrender.com";
 const api = axios.create({ baseURL: API_BASE, timeout: 120000 });
 
 // ─── PDF Upload ────────────────────────────────────────────────────────────────
