@@ -13,6 +13,7 @@ node_modules/
 .next/
 .cache/
 .env.local
+*.tsbuildinfo
 
 # Database
 db/chroma/

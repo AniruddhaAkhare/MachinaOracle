@@ -3,7 +3,7 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import Optional
 from agents.cascade_agent import CascadeIntelligenceAgent
-from db.database import SessionLocal, MachineLog
+from db.database import get_machine_data
 import logging
 
 logger = logging.getLogger(__name__)
@@ -14,20 +14,6 @@ agent  = CascadeIntelligenceAgent()
 class CascadeRequest(BaseModel):
     session_id: str
     machine_id: str
-
-
-def get_machine_data(session_id: str, machine_id: str) -> dict:
-    db = SessionLocal()
-    try:
-        row = db.query(MachineLog).filter(
-            MachineLog.session_id == session_id,
-            MachineLog.machine_id == machine_id,
-        ).first()
-        if not row:
-            raise HTTPException(status_code=404, detail=f"Machine {machine_id} not found in session {session_id}")
-        return row.raw_data or {}
-    finally:
-        db.close()
 
 
 @router.post("/simulate-cascade")

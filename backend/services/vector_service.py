@@ -157,6 +157,11 @@
 
 """ChromaDB vector store service using LangChain"""
 import os
+
+# Disable ChromaDB telemetry to prevent PostHog errors
+os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
+os.environ.setdefault("CHROMA_TELEMETRY", "False")
+
 import logging
 import json
 from typing import List, Dict, Any
@@ -231,12 +236,20 @@ def store_dataset_embeddings(dataset_path: str):
         return
     
     vectorstore = get_vectorstore("dataset_logs")
+
+    try:
+        if vectorstore._collection.count() > 0:
+            logger.info("Dataset embeddings already initialized in ChromaDB. Skipping re-embedding.")
+            return
+    except Exception as e:
+        logger.debug(f"Chroma collection count check: {e}")
     
     with open(dataset_path) as f:
         data = json.load(f)
     
     docs = []
-    for i, log in enumerate(data[:500]):
+    # Index 100 benchmark documents to prevent exceeding Render's 512MB RAM cap
+    for i, log in enumerate(data[:100]):
         text = f"Machine: {log.get('machine_id')} Log: {log.get('log_text', '')}"
         metadata = {
             "machine_id": str(log.get("machine_id", "")),
@@ -244,7 +257,7 @@ def store_dataset_embeddings(dataset_path: str):
         }
         docs.append(Document(page_content=text, metadata=metadata))
     
-    # LangChain handles the batching internally better than manual loops
+    # LangChain handles the batching internally
     vectorstore.add_documents(docs)
     logger.info(f"Stored {len(docs)} dataset embeddings using LangChain")
 

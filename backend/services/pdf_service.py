@@ -1,5 +1,8 @@
 """PDF extraction and machine detection service"""
-import fitz  # PyMuPDF
+try:
+    import pymupdf as fitz
+except ImportError:
+    import fitz
 import re
 import json
 import uuid

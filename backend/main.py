@@ -3,6 +3,11 @@ MachinaOracle - Autonomous AI Factory Brain
 FastAPI Backend Entry Point (Combined & Production Ready)
 """
 
+import os
+# ── Disable telemetry BEFORE ChromaDB imports ──
+os.environ["ANONYMIZED_TELEMETRY"] = "False"
+os.environ["CHROMA_TELEMETRY"] = "False"
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
@@ -73,6 +78,14 @@ app.include_router(hitl_router, prefix="/api", tags=["Human-in-the-Loop"])
 app.include_router(websocket_router)
 
 # ── Health Endpoints ───────────────────────────
+from db.database import init_db
+
+@app.on_event("startup")
+async def on_startup():
+    logger.info("Initializing database and verifying tables...")
+    init_db()
+    logger.info("Database initialized.")
+
 @app.get("/")
 async def root():
     return {
@@ -92,9 +105,10 @@ async def health():
 # ── Run Server ─────────────────────────────────
 if __name__ == "__main__":
     logger.info("🔥 Starting MachinaOracle Backend...")
+    port = int(os.getenv("PORT", 8000))
     uvicorn.run(
         "main:app",
         host="0.0.0.0",
-        port=8000,
-        reload=True
+        port=port,
+        reload=False
     )

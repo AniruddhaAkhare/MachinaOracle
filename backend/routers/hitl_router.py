@@ -32,7 +32,7 @@ from typing import Any, Dict, Optional
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-from db.database import SessionLocal, MachineLog
+from db.database import get_machine_data
 from services.gemini_service import generate_json_response
 from agents.base_agent import BaseAgent
 
@@ -72,17 +72,7 @@ AGENT_META: Dict[str, Dict[str, str]] = {
 
 # ─── Helpers ──────────────────────────────────────────────────────────────────
 def _load_machine(session_id: str, machine_id: str) -> Dict:
-    db = SessionLocal()
-    try:
-        row = db.query(MachineLog).filter(
-            MachineLog.session_id == session_id,
-            MachineLog.machine_id == machine_id,
-        ).first()
-        if not row:
-            raise HTTPException(404, f"Machine {machine_id} not found")
-        return row.raw_data or {}
-    finally:
-        db.close()
+    return get_machine_data(session_id, machine_id)
 
 
 def _format_machine_ctx(machine_data: Dict) -> str:
